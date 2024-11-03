@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Connexion - Netflix</title>
+    <script>
+        function showAlertAndRedirect(message, redirectUrl) {
+            alert(message);
+            window.location.href = redirectUrl; // Redirection après l'alerte
+        }
+    </script>
+</head>
+<body>
+    {% if error %}
+        <script>
+            alert("{{ error }}");
+        </script>
+    {% endif %}
+    
+    <!-- <nav>
+        <img src="https://images.ctfassets.net/y2ske730sjqp/821Wg4N9hJD8vs5FBcCGg/9eaf66123397cc61be14e40174123c40/Vector__3_.svg" alt="logo"/>
+    </nav> -->
+
+    <div class="form-wrapper">
+        <h2>Connexion</h2>
+        <form method="post" action="{{ url_for('signin') }}">
+            <div class="form-control">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email ou numéro de téléphone</label>
+            </div>
+            <div class="form-control">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Mot de passe</label>
+            </div>
+            <button type="submit">Se connecter</button>
+            <p id="or">OU</p>
+            <div class="form-help">
+                <a href="#">Besoin d'aide ?</a>
+            </div>
+        </form>
+        <p>Vous n'avez pas de compte ? <a href="{{ url_for('signup') }}">Inscrivez-vous maintenant</a></p>
+    </div>
+</body>
+</html>

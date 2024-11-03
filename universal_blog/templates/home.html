@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <title>Accueil - Netflix</title>
+</head>
+<body>
+    <nav>
+        <h1>Bienvenue, {{ user }}!</h1>
+        <a href="{{ url_for('signout') }}">Déconnexion</a>
+    </nav>
+    <main>
+        <h2>Contenu Protégé</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae qui, iusto doloribus optio veritatis, neque sit impedit dolorum quaerat quasi iure dolorem distinctio.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae qui, iusto doloribus optio veritatis, neque sit impedit dolorum quaerat quasi iure dolorem distinctio.</p>
+    </main>
+    <!-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v21.0"></script>
+
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="1"></div> -->
+</body>
+</html>

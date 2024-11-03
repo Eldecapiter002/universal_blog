@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Inscription - Netflix</title>
+    <script>
+        function showAlertAndRedirect(message, redirectUrl) {
+            alert(message);
+            window.location.href = redirectUrl; // Redirection après l'alerte
+        }
+    </script>
+</head>
+<body>
+    {% if error %}
+        <script>
+            alert("{{ error }}");
+        </script>
+    {% endif %}
+    
+    <!-- <nav>
+        <img src="https://images.ctfassets.net/y2ske730sjqp/821Wg4N9hJD8vs5FBcCGg/9eaf66123397cc61be14e40174123c40/Vector__3_.svg" alt="logo"/>
+    </nav> -->
+
+    <div class="form-wrapper">
+        <h2>Inscription</h2>
+        <form method="post" action="{{ url_for('signup') }}">
+            <div class="form-control">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email ou numéro de téléphone</label>
+            </div>
+            <div class="form-control">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Mot de passe</label>
+            </div>
+            <button type="submit">S'inscrire</button>
+            <p id="or">OU</p>
+            <button id="code" type="button">Utiliser un code de connexion</button>
+            <div class="form-help">
+                <div class="remember-me">
+                    <input type="checkbox">
+                    <label>Se souvenir de moi</label>
+                </div>
+                <a href="#">Besoin d'aide ?</a>
+            </div>
+        </form>
+        <p>Vous avez un compte Netflix ? <a href="{{ url_for('signin') }}">Connectez-vous maintenant</a></p>
+        <small>
+            Cette page est protégée par Google reCAPTCHA pour s'assurer que vous n'êtes pas un robot. 
+            <a href="#">En savoir plus.</a>
+        </small>
+    </div>
+
+    {% if success %}
+        <script>
+            showAlertAndRedirect("Inscription réussie !", "{{ url_for('signin') }}");
+        </script>
+    {% endif %}
+</body>
+</html>
